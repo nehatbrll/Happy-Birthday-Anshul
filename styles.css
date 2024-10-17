@@ -1,0 +1,258 @@
+:root{
+    --border-color: rgb(255,210,219);
+    --background: rgb(255,235,239);
+    --front-bg: rgb(255,185,199);
+    --front-bg-darken: rgb(255,185,199);
+    --shadow: rgba(255, 185, 199, 0.5);
+    --drop-shadow: rgba(255, 185, 199, 0.5);
+    --text: #311d1d;
+ }
+ 
+ html,
+ body 
+ {
+     overflow: hidden;
+     background-color: #bbd6ff;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .card{
+   position: relative;
+     width: 425px;
+     height: 425px;
+     border: 10px solid var(--border-color);
+     margin: 360px auto;
+     box-shadow: inset 10px 0px 15px 0px var(--shadow);
+     background-color: var(--background)
+ }
+ 
+ .card .textContainer {
+     width: 90%;
+     height: 80%;
+     margin: auto;
+ }
+ 
+ .textContainer #header {
+    font-size: 1rem;
+    margin: 17px auto;
+}
+ 
+ .card p {
+     font-family: 'Balsamiq+Sans';
+     font-size: 1rem;
+     line-height: 1.;
+     color: var(--text);
+     font-style: normal;
+     text-align: center;
+ }
+ 
+ .card .front {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     margin: -10px 0px 0px -10px;
+     border: 10px solid var(--border-color);
+     backface-visibility: hidden;
+     background-color: var(--front-bg);
+     background-size: contain;
+     transform-style: preserve-3d;
+     transform-origin: 50% 0%;
+     transform: perspective(800px) rotateX(0deg);
+     transition:all 0.8s ease-in-out;
+ }
+ 
+ .card:hover .front {
+     transform: perspective(800px) rotateX(170deg);
+ }
+ 
+ .card .back {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     margin: -10px 0px 0px -10px;
+     border: 10px solid var(--border-color);
+     backface-visibility: visible;
+     filter: drop-shadow(2px 2px 4px var(--drop-shadow));
+    transform-style: preserve-3d;
+    transform-origin: 50% 0%;
+    transform: perspective(800px) rotateX(0deg);
+    transition: all 0.8s ease-in-out;
+    background-color: var(--background);
+    box-shadow: 0 0 0 0 var(--shadow);
+ }
+ 
+ .card:hover .back {
+     transform: perspective(800px) rotateX(170deg);
+     box-shadow: 0px 5px 10px var(--shadow), inset 2px 0px 15px 0px var(--shadow) ;
+ }
+ 
+ .heart-container {
+     position: relative;
+     top:calc(50% - 50px);
+     left:calc(50% - 50px);
+ }
+ 
+ .heart-1 {
+     position: absolute;
+     background-color: palevioletred;
+ filter: drop-shadow(0px 0px 5px var(--drop-shadow));
+ height: 100px;
+ width: 100px;
+ margin: auto;
+ transform: rotate(-45deg);
+ }
+ .heart-1:before,
+ .heart-1:after {
+     content: "";
+     position: absolute;
+     background-color: palevioletred;
+     border-radius: 50%;
+     height: 100px;
+     width: 100px;
+ }
+ .heart-1:before{
+     top: -50px
+ }
+ .heart-1:after{
+     left: 50px;
+ }
+ 
+ .heart-2 {
+     position: absolute;
+     background-color: rgb(214, 95, 135);
+     filter: drop-shadow(0px 0px 5px var(--drop-shadow));
+     height: 80px;
+     width: 80px;
+     margin: auto;
+     transform: rotate(-45deg);
+     top:10px;
+     left: 9px;
+ }
+ .heart-2:before,
+ .heart-2:after {
+     content: "";
+     position: absolute;
+     background-color: rgb(214, 95, 135);
+     border-radius: 50%;
+     height: 80px;
+     width: 80px;
+ }
+ .heart-2:before{
+     top: -40px
+ }
+ .heart-2:after{
+     left: 40px;
+ }
+ 
+ .heart-3 {
+     position: absolute;
+     background-color: rgb(204, 96, 132);
+     filter: drop-shadow(0px 0px 5px var(--drop-shadow));
+     height: 60px;
+     width: 60px;
+     margin: auto;
+     transform: rotate(-45deg);
+     top: 20px;
+     left: 20px;
+ }
+ .heart-3:before,
+ .heart-3:after {
+     content: "";
+     position: absolute;
+     background-color: rgb(204, 96, 132);
+     border-radius: 50%;
+     height: 60px;
+     width: 60px;
+ }
+ .heart-3:before{
+     top: -30px
+ }
+ .heart-3:after{
+     left: 30px;
+ }
+
+.confetti {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 10px; /* Size of the heart */
+    height: 10px; /* Size of the heart */
+    background-color: #e0789b; /* Heart color */
+    transform: rotate(45deg);
+    opacity: 0.8;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -5px;
+    left: 0;
+}
+
+.heart::after {
+    left: 5px;
+    top: 0;
+}
+
+.star {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #a996ff; /* Star color */
+    opacity: 0.8;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.star:before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 3px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #a996ff; /* Star color */
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 3px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #a996ff; /* Star color */
+    transform: rotate(35deg);
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+}
